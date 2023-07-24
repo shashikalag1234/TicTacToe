@@ -28,6 +28,8 @@ public class TicTacToe {
             else if (board[i][0] == lastPlayer && board[i][1] == lastPlayer &&  board[i][2] == lastPlayer) {
                 return true;
             }
+            else if (board[0][0] == lastPlayer &&  board[1][1] == lastPlayer && board[2][2] == lastPlayer) 
+                return true;
         }
         return false;
 	}
