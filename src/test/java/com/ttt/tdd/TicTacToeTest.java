@@ -101,7 +101,7 @@ public class TicTacToeTest {
 		ticTacToe.play(2, 2); // X
 		ticTacToe.play(1, 3); // O
 		String actual = ticTacToe.play(3, 3); // X
-		assertEquals("X is the Winner", actual);
+		assertEquals(X_IS_THE_WINNER, actual);
 
 	}
 
