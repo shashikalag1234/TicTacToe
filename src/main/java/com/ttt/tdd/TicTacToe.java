@@ -10,7 +10,7 @@ public class TicTacToe {
 	public String play(int column, int row) {
 		checkAxis(column, "X value is outside the board!");
 		checkAxis(row, "Y value is outside the board!");
-		setField(column, row, lastPlayer);
+		setField(column, row, "Field is occupied!");
 		lastPlayer = nextPlayer();
 		return checkWin();
 	}
@@ -39,9 +39,9 @@ public class TicTacToe {
 		}
 	}
 
-	private void setField(int column, int row, char lastPlayer) {
+	private void setField(int column, int row, String msg) {
 		if (board[column - 1][row - 1] != '\0') {
-			throw new TicTacToeException("Field is occupied!");
+			throw new TicTacToeException(msg);
 		} else {
 			board[column - 1][row - 1] = lastPlayer;
 		}
