@@ -11,30 +11,24 @@ public class TicTacToe {
 		checkAxis(column, "X value is outside the board!");
 		checkAxis(row, "Y value is outside the board!");
 		lastPlayer = nextPlayer();
-		setField(column, row, "Field is occupied!",lastPlayer);
+		setField(column, row, "Field is occupied!", lastPlayer);
 		if (isWinner()) {
-	           return lastPlayer + " is the Winner";
-	       }
-	       return "No winner";
+			return lastPlayer + " is the Winner";
 		}
-		
-	
+		return "No winner";
+	}
 
 	private boolean isWinner() {
-        for (int i = 0; i < 3; i++) {
-            if (board[0][i] == lastPlayer && board[1][i] == lastPlayer &&  board[2][i] == lastPlayer) {
-                return true;
-            }
-            else if (board[i][0] == lastPlayer && board[i][1] == lastPlayer &&  board[i][2] == lastPlayer) {
-                return true;
-            }
-            else if (board[0][0] == lastPlayer &&  board[1][1] == lastPlayer && board[2][2] == lastPlayer) 
-                return true;
-            else if(board[2][0] ==lastPlayer && board[1][1] ==lastPlayer && board[0][2] == lastPlayer)
-            	return true;
-        
-        }
-        return false;
+		for (int i = 0; i < 3; i++) {
+			if (board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer
+					|| board[i][0] == lastPlayer && board[i][1] == lastPlayer && board[i][2] == lastPlayer) {
+				return true;
+			} else if (board[0][0] == lastPlayer && board[1][1] == lastPlayer && board[2][2] == lastPlayer
+					|| board[2][0] == lastPlayer && board[1][1] == lastPlayer && board[0][2] == lastPlayer)
+				return true;
+
+		}
+		return false;
 	}
 
 	public char nextPlayer() {
@@ -51,7 +45,7 @@ public class TicTacToe {
 		}
 	}
 
-	private void setField(int column, int row, String msg,char lastPlayer) {
+	private void setField(int column, int row, String msg, char lastPlayer) {
 		if (board[column - 1][row - 1] != '\0') {
 			throw new TicTacToeException(msg);
 		} else {
