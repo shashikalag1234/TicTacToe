@@ -17,6 +17,8 @@ public class TicTacToeTest {
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
+	public static final Character FIRST_PLAYER = 'X';
+
 
 	@Test
 	public void initializeNewTicTacToeGame() {
@@ -37,7 +39,7 @@ public class TicTacToeTest {
 
 	@Test
 	public void playWithFIrstPlayer() {
-		assertEquals('X', ticTacToe.nextPlayer());
+		assertEquals(FIRST_PLAYER, ticTacToe.nextPlayer());
 	}
 
 }
