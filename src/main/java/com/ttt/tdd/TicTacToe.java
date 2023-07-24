@@ -6,17 +6,25 @@ public class TicTacToe {
 
 	private Character[][] board = { { '\0', '\0', '\0' }, { '\0', '\0', '\0' }, { '\0', '\0', '\0' } };
 	private char lastPlayer = '\0';
+	public static final String ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD = "X value is outside the board!";
+	public static final String ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD = "Y value is outside the board!";
+	public static final String FFIELD_IS_OCCUPIED = "Field is occupied!";
+	public static final String ALL_FIELDS_ARE_FILLEd_ITS_A_DRAW= "It is a draw";
+	public static final String NO_WINNER= "It is a draw";
+
+
+
 
 	public String play(int column, int row) {
-		checkAxis(column, "X value is outside the board!");
-		checkAxis(row, "Y value is outside the board!");
+		checkAxis(column, ERROR_MSG_OF_X_VALUE_IF_OUTSIDE_THE_BOARD);
+		checkAxis(row, ERROR_MSG_OF_Y_VALUE_IF_OUTSIDE_THE_BOARD);
 		lastPlayer = nextPlayer();
-		setField(column, row, "Field is occupied!", lastPlayer);
+		setField(column, row, FFIELD_IS_OCCUPIED, lastPlayer);
 		if (isWinner()) {
 			return lastPlayer + " is the Winner";
 		}
 			else if (isDraw()) {
-	            return "It is a draw";
+	            return ALL_FIELDS_ARE_FILLEd_ITS_A_DRAW;
 	        } 
 			else{
 				return "No winner";
