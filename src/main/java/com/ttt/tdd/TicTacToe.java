@@ -13,11 +13,8 @@ public class TicTacToe {
 		} else if (row < 1 || row > 3) {
 			throw new TicTacToeException("Y value is outside the board!");
 		}
-		if (board[column - 1][row - 1] != '\0') {
-			throw new TicTacToeException("Field is occupied!");
-		} else {
-			board[column - 1][row - 1] = 'X';
-		}
+		lastPlayer = nextPlayer();
+		setField(column, row, lastPlayer);
 	}
 
 	public char nextPlayer() {
@@ -25,6 +22,15 @@ public class TicTacToe {
 			return 'O';
 		}
 		return 'X';
+
+	}
+
+	private void setField(int column, int row, char lastPlayer) {
+		if (board[column - 1][row - 1] != '\0') {
+			throw new TicTacToeException("Field is occupied!");
+		} else {
+			board[column - 1][row - 1] = lastPlayer;
+		}
 
 	}
 
