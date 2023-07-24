@@ -19,7 +19,6 @@ public class TicTacToeTest {
 	public ExpectedException exception = ExpectedException.none();
 	public static final Character FIRST_PLAYER = 'X';
 
-
 	@Test
 	public void initializeNewTicTacToeGame() {
 		assertNotNull(ticTacToe);
@@ -40,6 +39,12 @@ public class TicTacToeTest {
 	@Test
 	public void playWithFIrstPlayer() {
 		assertEquals(FIRST_PLAYER, ticTacToe.nextPlayer());
+	}
+
+	@Test
+	public void givenLastTurnWasXWhenNextPlayerThenO() {
+		ticTacToe.play(1, 1);
+		assertEquals('O', ticTacToe.nextPlayer());
 	}
 
 }
